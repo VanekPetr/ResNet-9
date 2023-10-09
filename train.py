@@ -22,13 +22,13 @@ def train_epoch(model, device, train_loader, optimizer, epoch):
 
 def train(number_of_epochs: int = 10, device: str = 'cpu') -> None:
     # Create the model
-    model = ResNet(ResidualBlock, num_classes=10).to(device)
+    model = ResNet(ResidualBlock, num_classes=2).to(device)
 
     # Create the optimizer
-    optimizer = torch.optim.SGD(model.parameters(), lr=0.02, momentum=0.9)
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 
     # Define the learning rate scheduler
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.1)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.3)
 
     # Create the training dataloader
     train_dataset = preprocess_data()

@@ -48,8 +48,8 @@ async def predictions_to_output_class(predictions: List[torch.Tensor]) -> List[C
 async def predict(image_list: List[Image.open], local: bool = False) -> List[torch.Tensor]:
     # Create the model and move it to the GPU if available
     device = 'cpu'
-    model = ResNet(ResidualBlock, num_classes=10)
-    model.load_state_dict(torch.load(os.path.join(os.path.dirname(os.getcwd()) if local else '', 'models/trained_classifier.pth')))
+    model = ResNet(ResidualBlock, num_classes=2)
+    model.load_state_dict(torch.load(os.path.join(os.getcwd() if local else '', 'models/trained_classifier.pth')))
     model = model.to(device)
     model.eval()
 
@@ -85,8 +85,8 @@ async def predict(image_list: List[Image.open], local: bool = False) -> List[tor
 
 
 if __name__ == '__main__':
-    image_path_1 = os.path.join(os.getcwd(), 'data/test/cats/cat_1.png')
-    image_path_2 = os.path.join(os.getcwd(), 'data/test/dogs/dog_59.png')
+    image_path_1 = os.path.join(os.getcwd(), 'data/test/cats/cat_1.jpg')
+    image_path_2 = os.path.join(os.getcwd(), 'data/test/dogs/dog_59.jpg')
     image_paths = [image_path_1, image_path_2]
     test_image_list = [Image.open(image_path) for image_path in image_paths]
 
