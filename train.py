@@ -42,8 +42,8 @@ def train(number_of_epochs: int = 10, device: str = 'cpu') -> None:
         scheduler.step()
 
     # Save the model
-    torch.save(model.state_dict(), os.path.join(os.path.dirname(os.getcwd()), 'models/trained_classifier.pth'))
+    torch.save(model.state_dict(), os.path.join(os.getcwd(), 'models/trained_classifier.pth'))
 
 
 if __name__ == '__main__':
-    train(number_of_epochs=300)
+    train(number_of_epochs=200)

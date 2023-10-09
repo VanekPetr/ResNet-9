@@ -14,7 +14,7 @@ def preprocess_data() -> datasets.ImageFolder:
         normalize,  # Normalize image
     ])
 
-    train_dataset = datasets.ImageFolder(root=os.path.join(os.getcwd(), 'data'), transform=transform)
+    train_dataset = datasets.ImageFolder(root=os.path.join(os.getcwd(), 'data/train'), transform=transform)
 
     return train_dataset
 

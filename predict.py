@@ -85,8 +85,8 @@ async def predict(image_list: List[Image.open], local: bool = False) -> List[tor
 
 
 if __name__ == '__main__':
-    image_path_1 = os.path.join(os.getcwd(), 'data/cats/cat_1.png')
-    image_path_2 = os.path.join(os.getcwd(), 'data/dogs/dog_1.png')
+    image_path_1 = os.path.join(os.getcwd(), 'data/test/cats/cat_1.png')
+    image_path_2 = os.path.join(os.getcwd(), 'data/test/dogs/dog_59.png')
     image_paths = [image_path_1, image_path_2]
     test_image_list = [Image.open(image_path) for image_path in image_paths]
 
